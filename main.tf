@@ -1,22 +1,23 @@
 terraform {
-    # cloud {
-    #     organization = "finches"
-    #     workspaces {
-    #     name = "finches-tf"
-    #     }
-    # }
+  # cloud {
+  #     organization = "finches"
+  #     workspaces {
+  #     name = "finches-tf"
+  #     }
+  # }
+
   backend "s3" {
     bucket = "dob-terraform-state-meher"
     key    = "terraform.tfstate"
     region = "us-east-1"
     tags = {
-        Client       = "Internal"
-        Project      = "DOB"
-        Owner        = "Meher"
-        Appliocaiton = "app_server"
-        Environment  = "test"
+      Client       = "Internal"
+      Project      = "DOB"
+      Owner        = "Meher"
+      Appliocaiton = "app_server"
+      Environment  = "test"
     }
-    
+
   }
   required_providers {
     aws = {
@@ -29,7 +30,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-1"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "app_server" {
