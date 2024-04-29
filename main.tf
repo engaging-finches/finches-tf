@@ -1,10 +1,23 @@
 terraform {
-    cloud {
-        organization = "finches"
-        workspaces {
-        name = "finches-tf"
-        }
+    # cloud {
+    #     organization = "finches"
+    #     workspaces {
+    #     name = "finches-tf"
+    #     }
+    # }
+  backend "s3" {
+    bucket = "dob-terraform-state-meher"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+    tags = {
+        Client       = "Internal"
+        Project      = "DOB"
+        Owner        = "Meher"
+        Appliocaiton = "app_server"
+        Environment  = "test"
     }
+    
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -21,13 +34,14 @@ provider "aws" {
 
 resource "aws_instance" "app_server" {
   ami           = "ami-04e5276ebb8451442"
-  instance_type = "t2.medium"
+  instance_type = "t2.micro"
 
   tags = {
     Name         = var.instance_name
-    Client       = "internal"
+    Client       = "Internal"
     Project      = "DOB"
-    Owner        = "Meher-Lippmann"
+    Owner        = "Meher"
     Appliocaiton = "app_server"
+    Environment  = "test"
   }
 }
