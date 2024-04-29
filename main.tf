@@ -1,8 +1,8 @@
 terraform {
     cloud {
-        organization = "finches-tf"
+        organization = "finches"
         workspaces {
-        name = "finches-learn-terraform-aws"
+        name = "finches-tf"
         }
     }
   required_providers {
@@ -16,7 +16,6 @@ terraform {
 }
 
 provider "aws" {
-  profile = "meher"
   region  = "us-east-1"
 }
 
