@@ -5,7 +5,6 @@ terraform {
   #     name = "finches-tf"
   #     }
   # }
-
   backend "s3" {
     bucket = "dob-terraform-state-meher"
     key    = "terraform.tfstate"
