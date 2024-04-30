@@ -37,3 +37,8 @@ resource "aws_instance" "app_server" {
     Environment  = "test"
   }
 }
+
+module "website_s3_bucket" {
+  source      = "./modules/s3-bucket"
+  bucket_name = "dob-terraform-state-meher"
+}
