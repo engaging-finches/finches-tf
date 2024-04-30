@@ -27,11 +27,11 @@ module "ec2_instance" {
   subnet_id              = module.vpc.private_subnets[0]
 
   tags = {
-    Terraform   = "true"
-    Environment = "test"
-    Owner       = "Meher"
-    Client      = "Internal"
-    Project     = "DOB"
+    Terraform    = "true"
+    Environment  = "test"
+    Owner        = "Meher"
+    Client       = "Internal"
+    Project      = "DOB"
     Appliocaiton = "app_server"
   }
 }
