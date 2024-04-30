@@ -9,14 +9,6 @@ terraform {
     bucket = "dob-terraform-state-meher"
     key    = "terraform.tfstate"
     region = "us-east-1"
-    tags = {
-      Client       = "Internal"
-      Project      = "DOB"
-      Owner        = "Meher"
-      Appliocaiton = "app_server"
-      Environment  = "test"
-    }
-
   }
   required_providers {
     aws = {
