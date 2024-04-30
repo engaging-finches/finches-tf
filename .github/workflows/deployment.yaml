@@ -1,9 +1,12 @@
 name: 'Deployment Action'
 on:
-  workflow_run:
-    workflows: ["Terraform GitHub Action"]
-    types:
-      - completed
+  push:
+    branches:
+      - main
+  # workflow_run:
+  #   workflows: ["Terraform GitHub Action"]
+  #   types:
+  #     - completed
 
 permissions:
     id-token: write
